@@ -1,0 +1,68 @@
+<div class="modal fade" id="modalLibro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{!this.dataApi.selectedLibro.id ? 'Nuevo Libro': 'Actualizar Libro'}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #formLibro="ngForm" (ngSubmit)="onSaveLibro(formLibro)">
+          <input type="hidden" name="id" [(ngModel)]="this.dataApi.selectedLibro.id">
+          <div class="mb-3">
+            <label for="titulo" class="col-form-label">Titulo:</label>
+            <input type="text" class="form-control" name="titulo" [(ngModel)]="this.dataApi.selectedLibro.titulo">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="idioma">IDIOMA</label>
+              <select name="idioma" class="form-control" [(ngModel)]="this.dataApi.selectedLibro.idioma">
+                <option value="Inglés">Inglés</option>
+                <option value="Español">Español</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="precio">PRECIO</label>
+              <input type="text" name="precio" class="form-control" placeholder="0,00$" [(ngModel)]="this.dataApi.selectedLibro.precio">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group com-md-6">
+              <label for="autor">AUTOR</label>
+              <input type="text" name="autor" class="form-control" placeholder="Autor" [(ngModel)]="this.dataApi.selectedLibro.autor">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="oferta">OFERTA</label>
+              <select name="oferta" class="form-control" [(ngModel)]="this.dataApi.selectedLibro.oferta">
+                <option value="1">Si</option>
+                <option value="0">No</option>
+              </select>
+              
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="portada">PORTADA</label>
+              <input type="text" name="portada" class="form-control" placeholder="Portada" [(ngModel)]="this.dataApi.selectedLibro.portada">
+            </div>
+            <div class="form-group col-md 6">
+              <label for="link_amazon">LINK AMAZON</label>
+              <input type="text" name="link_amazon" class="form-control" placeholder="Link Amazon" [(ngModel)]="this.dataApi.selectedLibro.link_amazon">
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="descripcion" class="col-form-label">DESCRIPCION:</label>
+            <textarea class="form-control" name="descripcion" [(ngModel)]="this.dataApi.selectedLibro.descripcion"></textarea>
+          </div>
+          <button type="button" class="btn btn-secondary" #btnClose 
+          data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar Libro</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>

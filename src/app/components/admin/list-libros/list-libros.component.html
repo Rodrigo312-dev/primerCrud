@@ -1,0 +1,37 @@
+<section class="row mt-5">
+  <div class="col">
+    <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalLibro">Nuevo Libro</button>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Autor</th>
+          <th scope="col">Idioma</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Oferta</th>
+          <th scope="col">&nbsp;</th>
+          <th scope="col">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor ="let libro of libros; index as i">
+          <th scope="row">{{i+1}}</th>
+          <td>{{libro.titulo}}</td>
+          <td>{{libro.autor}}</td>
+          <td>{{libro.idioma}}</td>
+          <td>{{libro.precio}}</td>
+          <td>{{libro.oferta == 1 ? 'Si':'No'}}</td>
+          <td>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#modalLibro"
+            (click)="onPreUpdateLibro(libro)">Actualizar</button>
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="onDeleteLibro(libro.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<app-modal></app-modal>
